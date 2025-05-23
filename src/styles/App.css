@@ -1,0 +1,353 @@
+/* Global Resets and Body Styles */
+body {
+  margin: 0;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #F7F8F9; /* Light gray background */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 30px 15px; /* Padding around the content area */
+  box-sizing: border-box;
+}
+
+/* Wrapper for transitions, centered on the page */
+.transition-wrapper-outer {
+  position: relative;
+  width: 100%;
+  max-width: 375px; /* Typical mobile width for the design */
+  min-height: 600px; /* Ensure it has some height for transitions */
+}
+
+.page-transition-inner-wrapper {
+  /* This div is what CSSTransition applies classes to */
+}
+
+/* Common container for each page's content (the white box) */
+.page-container {
+  background-color: #ffffff;
+  padding: 40px 25px 30px 25px; /* Top, H, Bottom */
+  border-radius: 8px;
+  /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); */ /* Softer shadow */
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  animation: fadeIn 0.5s ease-out; /* Simple fade-in for elements */
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Inner content wrapper for flex layout */
+.page-content {
+  display: flex;
+  flex-direction: column;
+  gap: 18px; /* Default gap between elements */
+  width: 100%;
+}
+
+/* Typography */
+h1, h2 {
+  color: #1D1D1F;
+  margin: 0;
+  font-weight: 600;
+}
+
+h1 { /* Create Account, Signin */
+  font-size: 26px;
+  line-height: 1.3;
+  margin-bottom: 5px; /* Space after main heading */
+}
+
+h2 { /* Welcome, Account Settings title */
+  font-size: 22px;
+  line-height: 1.3;
+  margin-bottom: 5px;
+}
+
+p.description {
+  color: #8A8A8E; /* Subdued text color for descriptions */
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0 0 15px 0; /* Space after description */
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  font-size: 12px;
+  color: #6200EE; /* Purple label color */
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.form-label .required-asterisk {
+  color: #6200EE; /* Or red: #dc3545; */
+  margin-left: 1px;
+}
+
+.form-input {
+  padding: 12px 14px;
+  border: 1px solid #D0D0D0; /* Lighter border */
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  background-color: #FFF; /* Ensure white background */
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  color: #333;
+}
+
+.form-input::placeholder {
+  color: #B0B0B0;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #6200EE;
+  box-shadow: 0 0 0 3px rgba(98, 0, 238, 0.15);
+}
+
+/* Button Styles */
+.btn {
+  padding: 13px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.btn-primary {
+  background-color: #6200EE; /* Primary purple */
+  color: white;
+}
+.btn-primary:hover {
+  background-color: #5300c8; /* Darker purple */
+}
+
+.btn-secondary {
+  background-color: #F0E7FF; /* Lighter purple / Lavender */
+  color: #6200EE; /* Primary purple text */
+}
+.btn-secondary:hover {
+  background-color: #E0D1FF;
+}
+
+.btn-login-custom { /* For the gray Login button on Sign In page */
+  background-color: #CBCBCB;
+  color: #6F6F6F;
+  font-weight: 500;
+}
+.btn-login-custom:hover {
+  background-color: #B8B8B8;
+}
+
+/* Radio Button Group Styling */
+.radio-group {
+  margin-top: 8px;
+  margin-bottom: 15px;
+}
+.radio-group .form-label { /* The "Are you an Agency?" legend */
+  color: #333; /* Darker for legend, not purple */
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.radio-options {
+  display: flex;
+  gap: 25px;
+}
+.radio-options label {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #4A4A4A;
+  cursor: pointer;
+}
+.radio-options input[type="radio"] {
+  margin-right: 8px;
+  accent-color: #6200EE;
+  transform: scale(1.1);
+  transition: transform 0.1s ease;
+}
+.radio-options input[type="radio"]:checked {
+    transform: scale(1.15);
+}
+.radio-options input[type="radio"]:focus {
+  outline: 2px solid rgba(98, 0, 238, 0.2);
+  outline-offset: 2px;
+}
+
+/* Welcome Page specific style */
+.welcome-page {
+  gap: 15px; /* Gap between buttons */
+  padding-top: 100px; /* More space at top for centered feel */
+  padding-bottom: 100px;
+}
+.welcome-page h2 {
+  text-align: center;
+}
+.welcome-page p.description {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+
+/* Sign Up Page specific layout */
+.signup-page h1 {
+  margin-bottom: 20px; /* More space after title */
+}
+.signup-page .btn-primary {
+    margin-top: 10px; /* Space above create account button */
+}
+
+/* Sign In Page specific layout */
+.signin-page h1 {
+  margin-bottom: 8px;
+}
+.signin-page p.description {
+  margin-bottom: 25px;
+}
+.signin-page .btn-login-custom {
+  margin-top: 10px;
+}
+
+
+/* Account Settings Page Specifics */
+.account-settings-page {
+  gap: 25px; /* Increased gap for sections */
+}
+
+.account-settings-main-title {
+  text-align: center;
+  font-size: 19px;
+  font-weight: 600;
+  color: #333;
+}
+
+.profile-summary-box {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 18px 15px;
+  background-color: #F7F8FA; /* Very light gray, matches body */
+  border: 1px solid #EDEDED; /* Subtle border */
+  border-radius: 8px;
+}
+
+.profile-picture-container {
+  position: relative;
+  flex-shrink: 0; /* Prevent shrinking */
+}
+
+.profile-picture {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid #E0E0E0; /* Light border on pic */
+}
+
+.camera-icon {
+  position: absolute;
+  bottom: -2px; /* Fine-tune position */
+  right: -2px;
+  background-color: #6200EE;
+  border-radius: 50%;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px; /* Container size */
+  height: 18px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+  border: 2px solid white; /* White border around camera */
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.camera-icon:hover {
+    transform: scale(1.1);
+}
+
+.camera-icon svg {
+  width: 12px; /* SVG size */
+  height: 12px;
+  fill: white;
+}
+
+.profile-info h3 {
+  font-size: 17px;
+  color: #2C2C2C;
+  margin: 0 0 3px 0;
+  font-weight: 600;
+}
+
+.profile-info p {
+  font-size: 13px;
+  color: #757575;
+  margin: 0;
+}
+
+.account-description-text {
+  font-size: 13.5px;
+  color: #4A4A4A;
+  line-height: 1.65;
+  margin: 0;
+  padding: 5px 0; /* Small padding */
+}
+
+.dotted-separator-line {
+  border: 0;
+  border-top: 1.5px dashed #E0E0E0; /* Light dashed line */
+  margin: 0;
+}
+
+/* Page Transition Animations */
+.page-enter {
+  opacity: 0;
+  transform: translateY(25px) scale(0.98);
+  position: absolute; /* Stack pages during transition */
+  width: 100%;
+  top: 0; left: 0;
+}
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition: opacity 350ms cubic-bezier(0.34, 1.56, 0.64, 1), transform 350ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.page-exit {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+.page-exit-active {
+  opacity: 0;
+  transform: translateY(-25px) scale(0.98);
+  transition: opacity 300ms ease-out, transform 300ms ease-out;
+  position: absolute; /* Stack pages during transition */
+  width: 100%;
+  top: 0; left: 0;
+}
+
+/* Add Google Font Poppins (optional, include in index.html or here) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
